@@ -27,14 +27,16 @@ export function TabsList(): JSX.Element {
         try {
             setTabs([]);
             setSelectedTab(null);
-            const results = await tabsService.searchTabs(query);
-            setTabs(results);
-            if (results.length === 0) notify.success("No tabs found");
+            await tabsService.searchTabs(query, (newTabs: TabModel[]) => {
+                setTabs((prevTabs) => [...prevTabs, ...newTabs]);  // מוסיף תוצאות בהדרגה
+            });
+            if (tabs.length === 0) notify.success("No tabs found");
         }
         catch (err: any) {
             notify.error(err);
         }
     }
+    
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setQuery(event.target.value);
