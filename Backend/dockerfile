@@ -1,0 +1,44 @@
+# Install specific version of Alpine Linux + Node.js
+FROM node:20-alpine3.20
+
+# Set environment variables for Puppeteer to skip downloading Chromium
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+
+# Install necessary dependencies
+RUN apk add --no-cache \
+    chromium \
+    nss \
+    freetype \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont \
+    && rm -rf /var/cache/apk/*
+
+# Install global npm packages
+RUN npm i -g nodemon ts-node
+
+# Create app directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json to install dependencies more efficiently
+COPY package*.json /app/
+
+# Install node_modules
+RUN npm ci --only=production
+
+# Copy application code (excluding node_modules)
+COPY . /app
+
+# Expose port for the app
+EXPOSE 4100
+
+# Set React environment variables
+ENV REACT_APP_ENVIRONMENT=development
+ENV REACT_APP_BASE_URL=http://localhost:4100/
+
+# Default command - Run app in production mode
+ENTRYPOINT ["npm", "start"]
+
+# Optional for development (uncomment to enable hot-reloading with nodemon)
+CMD ["nodemon", "src/index.ts"]

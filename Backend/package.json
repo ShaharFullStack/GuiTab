@@ -1,0 +1,39 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "nodemon --exec ts-node src/app.ts --quiet"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^4.17.21",
+        "@types/express-fileupload": "^1.5.1",
+        "@types/node": "^22.5.5",
+        "@types/puppeteer": "^7.0.4",
+        "ts-node": "^10.9.2"
+    },
+    "dependencies": {
+        "@mui/material": "^5.15.21",
+        "@types/multer": "^1.4.12",
+        "axios": "^1.7.9",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.2",
+        "express-fileupload": "^1.5.1",
+        "express-rate-limit": "^7.4.0",
+        "joi": "^17.13.3",
+        "multer": "^1.4.5-lts.1",
+        "mysql2": "^3.11.3",
+        "puppeteer": "^23.10.3",
+        "socket.io": "^4.8.1",
+        "socket.io-client": "^4.8.1",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.7.2",
+        "uploaded-file-saver": "^1.0.1"
+    },
+    "main": "index.js",
+    "description": ""
+}

@@ -1,0 +1,29 @@
+
+
+  backend-service:
+    build: ./Backend
+    container_name: guitab-backend-container
+    restart: unless-stopped
+    depends_on:
+      database-service:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./Backend/src:/usr/src/app/src
+    environment:
+      MYSQL_HOST: database-service
+      MYSQL_USER: Alice
+      MYSQL_PASSWORD: Wonderland
+
+  frontend-service:
+    build: ./Frontend
+    container_name: guitab-frontend-container
+    restart: unless-stopped
+    depends_on:
+      - backend-service
+    ports:
+      - "80:80"
+    volumes:
+      - ./Frontend/src:/usr/src/app/src
+    

@@ -1,0 +1,62 @@
+.tab-viewer {
+    width: 100%;
+    min-height: 500px;
+    background-color: #1e1e1e;  /* צבע רקע כהה */
+    color: #ffffff;  /* טקסט לבן */
+    border: 1px solid #3b82f6; /* גבול */
+    font-family: 'Arial', sans-serif;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.tab-viewer .alphaTab {
+    background-color: #1e1e1e;
+}
+.TabViewer .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e92d2d;
+}
+.alphaTab .title {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.alphaTab .composer {
+    color: #9ca3af;
+}
+
+.alphaTab .measure {
+    stroke: #ffffff;
+}
+
+/* כפתורי שליטה */
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button.play {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+button.pause {
+    background-color: #f59e0b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+button.stop {
+    background-color: #ef4444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}

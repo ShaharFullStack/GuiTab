@@ -1,0 +1,224 @@
+.TabsList {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    min-height: 100vh;
+}
+
+/* Search Card Styles */
+.search-card {
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.search-form {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.search-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Table Styles */
+.table-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+}
+
+.table-header th {
+    padding: 1rem;
+    text-align: left;
+    color: #fff;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-row {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.table-row:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.table-cell {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-cell button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #4a90e2, #5ca0eb);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.table-cell button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
+}
+
+/* Viewer Container Styles */
+.viewer-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.centered {
+    text-align: center;
+    margin-top: 3rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Guitar Pick Loading Animation */
+@keyframes pick {
+    0% { transform: rotate(0deg) translateX(0); }
+    25% { transform: rotate(15deg) translateX(5px); }
+    75% { transform: rotate(-15deg) translateX(-5px); }
+    100% { transform: rotate(0deg) translateX(0); }
+}
+
+.search-button:active {
+    animation: pick 0.3s ease;
+}
+
+/* Fade Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .search-button {
+        width: 100%;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+}
+
+/* Music Note Background Animation */
+.TabsList::before {
+    content: '♪';
+    position: fixed;
+    top: -20px;
+    left: 50%;
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 40px;
+    animation: floatNote 3s infinite linear, floatNote 3.5s infinite linear, floatNote 4s infinite linear, floatNote 4.8s infinite linear, floatNote 3s infinite linear, floatNote 3s infinite linear, floatNote 3s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes floatNote {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}

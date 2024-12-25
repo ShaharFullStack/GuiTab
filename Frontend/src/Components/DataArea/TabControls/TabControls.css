@@ -1,0 +1,126 @@
+.TabControls {
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  .TabControls .control-section {
+    margin-bottom: 15px;
+  }
+  
+  .TabControls .control-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .TabControls label {
+    margin-right: 10px;
+  }
+  
+  .TabControls select {
+    margin-left: 10px;
+    padding: 5px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #666;
+    border-radius: 4px;
+  }
+  
+  .TabControls input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .TabControls button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .TabControls button:last-child {
+    margin-right: 0;
+  }
+  
+  .TabControls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #333;
+  }
+  
+  .TabControls .navigation-button {
+    background-color: #0066cc;
+  }
+  
+  .TabControls .navigation-button:disabled {
+    background-color: #333;
+  }
+  
+  .TabControls .play-button {
+    background-color: #00cc66;
+  }
+  
+  .TabControls .play-button.playing {
+    background-color: #cc3300;
+  }
+  
+  .TabControls .stop-button {
+    background-color: #cc3300;
+  }
+  
+  .TabControls .utility-button {
+    background-color: #666;
+  }
+  
+  .TabControls .metronome-button {
+    background-color: #666;
+  }
+  
+  .TabControls .metronome-button.active {
+    background-color: #00cc66;
+  }
+  
+  .TabControls .slider-container {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .TabControls .slider-container:last-child {
+    margin-bottom: 0;
+  }
+  
+  .TabControls input[type="range"] {
+    margin-left: 15px;
+    width: 200px;
+    accent-color: #0066cc;
+  }
+  
+  .TabControls .page-indicator {
+    margin: 0 15px;
+  }
+  
+  .TabControls .track-selection {
+    margin-bottom: 15px;
+  }
+  
+  .TabControls .display-options {
+    margin-bottom: 15px;
+  }
+  
+  .TabControls .layout-selection {
+    margin-bottom: 15px;
+  }
+  
+  .TabControls label.checkbox-label {
+    margin-right: 15px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .TabControls .volume-tempo-label {
+    display: flex;
+    align-items: center;
+  }

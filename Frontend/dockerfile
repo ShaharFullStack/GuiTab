@@ -1,0 +1,44 @@
+# שלב 1: בניית הפרויקט (React)
+FROM node:20-alpine3.20 AS build
+
+# יצירת תיקיית עבודה
+WORKDIR /app
+
+# העתקת package.json והתקנת חבילות
+COPY package.json package-lock.json ./
+RUN npm install
+
+# העתקת שאר הקבצים
+COPY . .
+
+# בניית האפליקציה
+RUN npm run build
+
+# --------------------------------------
+
+# שלב 2: שרת NGINX לפרודקשן
+FROM nginx:stable-alpine
+
+# העתקת תוצר הבנייה ל-NGINX
+COPY --from=build /app/build /usr/share/nginx/html
+
+# הגדרת ניתוב API ל-Backend
+RUN echo 'server { \
+    listen 80; \
+    location / { \
+        root /usr/share/nginx/html; \
+        index index.html; \
+        try_files $uri /index.html; \
+    } \
+    location /api/ { \
+        proxy_pass http://backend-service:4000; \
+        proxy_set_header Host $host; \
+        proxy_set_header X-Real-IP $remote_addr; \
+    } \
+}' > /etc/nginx/conf.d/default.conf
+
+# פתיחת פורט 80
+EXPOSE 80
+
+# הרצת NGINX
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
